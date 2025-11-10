@@ -211,7 +211,7 @@
 		"prefix": "stktz",
 		"body": [
 			"\\documentclass{standalone}",
-			"\\usepackage{tikz}",
+			"\\usepackage{custom_tikz}",
 			"\\begin{document}",
 			"% ltex: off",
 			"    $1",
