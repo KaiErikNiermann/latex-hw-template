@@ -83,14 +83,20 @@ install_core_texlive() {
 
   log_message "Installing essential LaTeX tools..."
   # Note: xelatex is provided by texlive-xetex (not a package named 'xelatex')
-  $SUDO apt install $ASSUME_YES latexmk texlive-xetex biber
+  $SUDO apt install $ASSUME_YES latexmk texlive-xetex biber texlive-lualatex
 
   log_message "Installing TeX Live (large metapackages)..."
   $SUDO apt install $ASSUME_YES texlive texlive-lang-all texlive-fonts-extra texlive-science
 
   log_message "Installing extra TeX Live utilities..."
   $SUDO apt install $ASSUME_YES texlive-bibtex-extra texlive-humanities
+
+  log_message "Installing minted package for LaTeX..."
+  $SUDO apt install $ASSUME_YES texlive-latex-extra
+  log_message "Installing dependencies for minted package (Pygments)..."
+  $SUDO apt install $ASSUME_YES python3-pygments
 }
+
 
 ensure_apt_file() {
   log_message "Ensuring apt-file is installed and updated..."
