@@ -1,0 +1,98 @@
+% --- Code styles (preamble) -----------------------------------------------
+
+% Engines
+\usepackage{listings} % you still use \lstset for some legacy code blocks
+\usepackage{minted}   % requires -shell-escape and pygmentize installed
+\newmintinline[dafnyinline]{dafny}{escapeinside=||}
+
+
+% tcolorbox with minted engine
+\usepackage[most]{tcolorbox}
+\tcbuselibrary{minted,skins,breakable}
+
+% Algorithms (unchanged)
+\usepackage{algorithm}
+% \usepackage{algpseudocode}
+\usepackage{algpseudocodex}
+\newcommand{\Generic}[1]{\texttt{\textbf{#1}}}
+
+% Colors and global minted options
+\definecolor{mintedbackground}{rgb}{1, 1, 1}
+\definecolor{mintedframe}{rgb}{1,1,1}
+\definecolor{mintedborder}{rgb}{0.75,0.75,0.75}
+
+\setminted{
+  bgcolor=mintedbackground,
+  frame=lines,
+  mathescape=true,
+  escapeinside=||,
+  framesep=2mm,
+  autogobble,
+  linenos,
+  numbersep=5pt,
+  xleftmargin=5pt,
+}
+
+% --- Title-less minted listings with language argument --------------------
+% Usage: \begin{fileminted}{python} ... \end{fileminted}
+\newtcblisting{fileminted}[2][]{
+  enhanced,
+  listing engine=minted,
+  listing only,
+  breakable,
+  #1,
+  minted language=#2,
+  minted options={breaklines, mathescape=true, escapeinside=||},
+  sharp corners,
+  boxrule=0pt,
+  colframe=mintedbackground,
+  top=-2mm,
+  bottom=-2mm,
+  left=0pt,
+  right=0pt,
+  boxsep=4pt,
+  colback=mintedbackground,
+  frame code={ 
+    \path[draw=mintedborder, fill=white](frame.south west) rectangle (frame.north east); 
+    \path[draw=mintedborder](frame.south west)--(frame.south east); 
+  },
+}
+
+% A black-&-white, boxed variant (formerly 'mathalgo') without a title.
+% Usage: \begin{mathalgo}{cpp} ... \end{mathalgo}
+\newtcblisting{mathalgo}[2][]{%
+  enhanced,
+  listing engine=minted,
+  listing only,
+  breakable,
+  #1,
+  minted language=#2,
+  minted options={breaklines, mathescape=true, escapeinside=||}, 
+  sharp corners,
+  boxrule=1pt,
+  colframe=black,
+  top=0mm,bottom=0mm,left=0pt,right=0pt,boxsep=3pt,
+  colback=white,
+  minted style=bw,
+  frame code={
+    \path[draw=black](frame.south west)--(frame.south east);
+    \path[draw=black](frame.north west)--(frame.north east);
+  },
+}
+
+% --- Legacy listings config (unchanged) -----------------------------------
+\lstset{
+  frame=tb,
+  language=Python,
+  showstringspaces=false,
+  columns=flexible,
+  basicstyle={\small\upshape},
+  numbers=left,
+  numbersep=-5pt,
+  keywordstyle=\color{black}\bfseries,
+  breaklines=true,
+  breakatwhitespace=true,
+  mathescape=true,
+  tabsize=2
+}
+

@@ -1,0 +1,169 @@
+{
+	// Place your global snippets here. Each snippet is defined under a snippet name and has a scope, prefix, body and 
+	// description. Add comma separated ids of the languages where the snippet is applicable in the scope field. If scope 
+	// is left empty or omitted, the snippet gets applied to all languages. The prefix is what is 
+	// used to trigger the snippet and the body will be expanded and inserted. Possible variables are: 
+	// $1, $2 for tab stops, $0 for the final cursor position, and ${1:label}, ${2:another} for placeholders. 
+	// Placeholders with the same ids are connected.
+	// Example:
+	// "Print to console": {
+	// 	"scope": "javascript,typescript",
+	// 	"prefix": "log",
+	// 	"body": [
+	// 		"console.log('$1');",
+	// 		"$2"
+	// 	],
+	// 	"description": "Log output to console"
+	// }
+	"Lean code": {
+		"scope": "latex",
+		"prefix": "leancode",
+		"body": [
+			"\\begin{minted}{lean}",
+			"$1",
+			"\\end{minted}"
+		],
+		"description": "Insert a Lean code block"
+	}, 
+	"Math escape block": {
+		"scope": "latex",
+		"prefix": "cmath",	// (c)ode (math)
+		"body": [
+			"|$$1$|",	//	esapeinside=|| in minted settings
+		],
+		"description": "Insert a display math block"
+	}, 
+	"Inline math escape": {
+		"scope": "latex",
+		"prefix": "imath",	// (i)nline (math)
+		"body": [
+			"$$1$",
+		],
+		"description": "Insert an inline math block"
+	}, 
+	"Definition": {
+		"scope": "latex",
+		"prefix": "defn",
+		"body": [
+			"\\begin{definition}{${1:Definition Name}}",
+			"",
+			"    $2",
+			"\\end{definition}"
+		],
+		"description": "Insert a definition environment"
+	}, 
+	"Code": {
+		"scope": "latex",
+		"prefix": "code",
+		"body": [
+			"\\begin{minted}{${1:python}}",
+			"$2",
+			"\\end{minted}"
+		],
+		"description": "Insert a code block with minted"
+	}, 
+	"Graphic": {
+		"scope": "latex",
+		"prefix": "fig",
+		"body": [
+			"\\begin{figure}[h!]",
+			" % make sure to escape underscores or latex gets angry",
+			"    \\centering",
+			"    \\includegraphics[width=${1:\\textwidth}]{${2:filename}}",
+			"    \\caption{${3:Caption}}",
+			"    \\label{fig:${4:label}}",
+			"\\end{figure}"
+		],
+		"description": "Insert a figure environment"
+	}, 
+	"List": {
+		"scope": "latex",
+		"prefix": "list",
+		"body": [
+			"\\begin{itemize}",
+			"    \\item $1",
+			"\\end{itemize}"
+		],
+		"description": "Insert an itemize list"
+	}, 
+	"Enumerate": {
+		"scope": "latex",
+		"prefix": "enum",
+		"body": [
+			"\\begin{enumerate}",
+			"    \\item $1",
+			"\\end{enumerate}"
+		],
+		"description": "Insert an enumerate list"
+	},
+	"Item": {
+		"scope": "latex",
+		"prefix": "item",
+		"body": [
+			"\\item $1"
+		],
+		"description": "Insert an item in a list"
+	},
+	"Env": {
+		"scope": "latex",
+		"prefix": "env",
+		"body": [
+			"\\begin{${1:environment}}",
+			"    $2",
+			"\\end{${1:environment}}"
+		],
+		"description": "Insert a generic environment"
+	}, 
+	"Formal Algorithm": {
+		"scope": "latex",
+		"prefix": "formalalgo",
+		"body": [
+			"\\begin{algorithm}[H]",
+			"    \\caption{${1:Algorithm Name}}",
+			"    \\begin{algorithmic}[1]",
+			"        \\State $2",
+			"    \\end{algorithmic}",
+			"\\end{algorithm}"
+		],
+		"description": "Insert a formal algorithm environment"
+	}, 
+	"Equation": {
+		"scope": "latex",
+		"prefix": "eqn",
+		"body": [
+			"\\begin{equation}",
+			"    $1 \\tag{$2}",
+			"\\end{equation}"
+		],
+		"description": "Insert an equation environment"
+	}, 
+	"Cases": {
+		"scope": "latex",
+		"prefix": "cases",
+		"body": [
+			"\\begin{cases}",
+			"    ${1:result_1} & ${2:condition_1} \\\\",
+			"\\end{cases}"
+		],
+		"description": "Insert a cases environment"
+	}, 
+	"Aligned Env": {
+		"scope": "latex",
+		"prefix": "aligned",
+		"body": [
+			"\\begin{aligned}",
+			"    $1",
+			"\\end{aligned}"
+		],
+		"description": "Insert an aligned environment"
+	}, 
+	"Aligned Line": {
+		"scope": "latex",
+		"prefix": "aline",
+		"body": [
+			"$1 &$2 $3 \\\\\\", 
+			"$4"
+		],
+		"description": "Insert an aligned line"
+	}, 
+}

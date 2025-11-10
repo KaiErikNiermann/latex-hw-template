@@ -1,0 +1,390 @@
+% =========================
+% Page geometry and layout
+% =========================
+\addtolength{\hoffset}{-2.25cm}   % shift left margin left by 2.25cm
+\addtolength{\textwidth}{4.5cm}   % increase text width by 4.5cm
+\addtolength{\voffset}{-2.5cm}    % shift top margin up by 2.5cm
+\addtolength{\textheight}{5cm}    % increase text height by 5cm
+
+% =========================
+% Spacing and indentation
+% =========================
+\setlength{\parskip}{0pt}         % paragraph separation
+\setlength{\parindent}{15pt}      % paragraph indentation (overridden below)
+\setlength{\itemsep}{1.5em}       % extra vertical space between list items (global default)
+
+% =================================================
+% Language, encoding, fonts (order matters here)
+% =================================================
+\usepackage[english]{babel}             % [english] sets the document language (hyphenation, captions, etc.)
+\usepackage[T1]{fontenc}                % [T1] use T1 font encoding (better hyphenation for Latin scripts)
+\usepackage[utf8]{inputenc}             % UTF-8 source for pdfLaTeX
+\usepackage{libertine}                  % Linux Libertine text font
+\usepackage{eulervm}                    % Euler math font
+\usepackage[scaled=0.92]{inconsolata}   % Dont remember why I did this but there was some reason 
+
+% =========================
+% Mathematics and theorems
+% =========================
+\usepackage{amsthm}                             % theorem environments
+\theoremstyle{definition}
+\newtheorem{theorem}{Theorem}                   
+\newtheorem{lemma}[theorem]{Lemma}              % shares numbering with theorem
+\newtheorem{proposition}[theorem]{Proposition}  
+\newtheorem{example}{Example}[section]          % numbered by section
+\newtheorem{definition}{Definition}[section]
+
+
+\usepackage{amsthm}               % (duplicate load retained intentionally)
+\usepackage{stmaryrd}             % additional math symbols (e.g., \parr for linear logic)
+\usepackage{amsmath}              % enhanced math environments
+\usepackage{amssymb}              % additional math symbols
+\usepackage{mathpartir}           % inference rules (mathpar environment)
+\usepackage{nicematrix}           % nice matrices and arrays 
+\usepackage[edges]{forest}        % drawing trees
+
+
+% =========================
+%  BNF and grammar notation
+% =========================
+\usepackage{syntax}                                   % BNF-style grammar notation
+  \setlength{\grammarparsep}{20pt plus 1pt minus 1pt} % increase separation between rules
+  \setlength{\grammarindent}{12em}                    % increase separation between LHS/RHS 
+
+\usepackage{simplebnf}                                           
+
+% Warning: lib gets pissy about certain math symbols
+\newcommand{\bnfenv}[1]{%
+  \begin{center}
+  \begin{bnf}(
+      prod-delim={--}, 
+      prod-sep=5pt     
+  )[
+    colspec = {llcll},
+    column{1} = {font = \sffamily},
+    column{2} = {mode = dmath},
+    column{4} = {font = \ttfamily},
+    column{5} = {font = \itshape\color{gray}},
+  ]
+  #1
+  \end{bnf}
+  \end{center}
+}
+
+
+% =========================
+% Operators and commands
+% =========================
+
+% Math operators (has correct spacing in math mode)
+% Linear algebra and statistics
+\DeclareMathOperator{\Tr}{Tr}                     % Trace of a matrix
+\DeclareMathOperator*{\argmax}{arg\, max}         % Argument of the maximum
+\DeclareMathOperator*{\argmin}{arg\, min}         % Argument of the minimum
+\DeclareMathOperator{\EX}{\mathbb{E}}             % Expected value
+\DeclareMathOperator{\Var}{Var}                   % Variance
+\DeclareMathOperator{\Cov}{Cov}                   % Covariance
+\DeclareMathOperator{\Bias}{Bias}                 % Bias
+\DeclareMathOperator{\Corr}{Corr}                 % Correlation
+\DeclareMathOperator{\sd}{sd}                     % Standard deviation
+\DeclareMathOperator{\se}{se}                     % Standard error
+\DeclareMathOperator{\MSE}{MSE}                   % Mean squared error
+\DeclareMathOperator{\RMSE}{RMSE}                 % Root mean squared error
+
+% Probability distributions
+\DeclareMathOperator{\Bern}{Bernoulli}            % Bernoulli distribution
+\DeclareMathOperator{\Binom}{Binomial}            % Binomial distribution
+\DeclareMathOperator{\Poiss}{Poisson}             % Poisson distribution
+\DeclareMathOperator{\Unif}{Uniform}              % Uniform distribution
+\DeclareMathOperator{\Mult}{Multinomial}          % Multinomial distribution
+\DeclareMathOperator{\Dir}{Dirichlet}             % Dirichlet distribution
+\DeclareMathOperator{\Beta}{Beta}                 % Beta distribution
+\DeclareMathOperator{\Norm}{Normal}               % Normal distribution
+\DeclareMathOperator{\Logis}{Logistic}            % Logistic distribution
+\DeclareMathOperator{\Lap}{Laplace}               % Laplace distribution
+
+% Sets
+\DeclareMathOperator{\N}{\mathbb{N}}              % Set of natural numbers
+\DeclareMathOperator{\Q}{\mathbb{Q}}              % Set of rational numbers
+\DeclareMathOperator{\Z}{\mathbb{Z}}              % Set of integers
+\DeclareMathOperator{\R}{\mathbb{R}}              % Set of real numbers
+\DeclareMathOperator{\F}{\mathbb{F}}              % Set of finite fields
+\DeclareMathOperator{\E}{\mathbb{E}}              % Set of expected values (alias for \EX)
+
+% Miscellaneous 
+\DeclareMathOperator{\cobs}{\textsc{obs}}                     % Observed (custom operator)
+\DeclareMathOperator{\csec}{\textsc{sec}}                     % Security (custom operator)
+\DeclareMathOperator{\cpc}{\textsc{pc}}                       % Program counter (custom operator)
+\DeclareMathOperator{\sslist}{\prec_s}                        % Strict subset list
+\DeclareMathOperator{\mand}{\quad \text{ and } \quad}         % Logical "and" with spacing
+\DeclareMathOperator{\tpacons}{T^{\text{PA}}_\texttt{cons}}   % Theory of Peano arithmetic with arrays
+\DeclareMathOperator{\lwand}{\wand}                           % Linear logic wand
+
+% General programming
+\DeclareMathOperator{\cif}{\texttt{if}}
+\DeclareMathOperator{\cthen}{\texttt{then}}
+\DeclareMathOperator{\cInts}{\texttt{Ints}}
+\DeclareMathOperator{\catom}{\texttt{atom}}
+\DeclareMathOperator{\cnil}{\texttt{nil}}
+\DeclareMathOperator{\celse}{\texttt{else}}
+\DeclareMathOperator{\clet}{\texttt{let}}
+\DeclareMathOperator{\cwhile}{\texttt{while}}
+\DeclareMathOperator{\cdo}{\texttt{do}}
+\DeclareMathOperator{\cskip}{\texttt{skip}}
+\DeclareMathOperator{\cass}{\texttt{:=}}
+\DeclareMathOperator{\ctrue}{\texttt{true}}
+\DeclareMathOperator{\cfalse}{\texttt{false}}
+\DeclareMathOperator{\cassert}{\texttt{assert}}
+\DeclareMathOperator{\cassume}{\texttt{assume}}
+\DeclareMathOperator{\cabort}{\texttt{abort}}
+\DeclareMathOperator{\cfn}{\texttt{fun}}
+\DeclareMathOperator{\creturn}{\texttt{return}}
+
+% Program verification
+\DeclareMathOperator{\cwp}{\texttt{wp}}
+\DeclareMathOperator{\cvc}{\texttt{vc}}
+\DeclareMathOperator{\cspc}{\texttt{post}}
+\DeclareMathOperator{\caspc}{\texttt{post\#}}
+
+% Sparation logic
+\DeclareMathOperator{\cInt}{\texttt{Int}}
+\DeclareMathOperator{\cVar}{\texttt{Var}}
+\DeclareMathOperator{\cVars}{\texttt{Vars}}
+\DeclareMathOperator{\cLocations}{\texttt{Locations}}
+\DeclareMathOperator{\cHeap}{\texttt{Heap}}
+\DeclareMathOperator{\cState}{\texttt{State}}
+\DeclareMathOperator{\cStore}{\texttt{Store}}
+\DeclareMathOperator{\cAtoms}{\texttt{Atoms}}
+
+% Shortcuts
+% \bvec for bold vectors
+\newcommand{\linpar}{\mathbin{\bindnasrepma}}         % linear logic par (fix to get around simplebnf parsing thing)
+\newcommand{\bvec}[1]{\mathbf{#1}}                    % bold vectors
+\newcommand{\ds}{\displaystyle}                       % display style   
+\newcommand{\iid}{\stackrel{iid}{\sim}}               % i.i.d. distributed as
+\newcommand{\indep}{\perp\!\!\!\perp}                 % independence
+\newcommand{\given}{\,|\,}                            % "given" in conditional probabilities
+\newcommand{\pr}{\text{P}}                            % probability
+\newcommand{\like}{\mathcal{L}}                       % likelihood
+\newcommand{\loglike}{\ell}                           % log-likelihood
+\newcommand{\normpdf}{\phi}                           % normal PDF
+\newcommand{\normcdf}{\Phi}                           % normal CDF
+\newcommand{\shift}[3]{\uparrow^{#1,#2}_{#3}}         % shift operator
+\newcommand{\deltaeq}[2]{\delta(#1{=}#2)}             % delta equality
+\newcommand{\defeq}{\triangleq}                       % defined equal
+\newcommand{\po}{\sqsubseteq}                         % partial order
+\newcommand{\lrbrack}[1]{\llbracket #1 \rrbracket}    % left and right double brackets
+\newcommand{\FV}[1]{\text{FV}(#1)}                    % left and right double brackets
+\newcommand{\Mod}[1]{\text{Mod}(#1)}                  % left and right double brackets
+\newcommand{\cf}[1]{\texttt{#1}}                      % code font (for inline code snippets)
+
+% newcommand def usage example:
+% \newcommand{\<name>}[<num-args>]{<definition>}
+% \name{<arg1>}{<arg2>}... for usage
+
+% =========================
+% Tabulars and columns
+% =========================
+\usepackage{array}                % extended array/tabular features
+\usepackage{tabularx}             % tabularx environment: tables with specified width
+
+% New column type: M{<width>} — ragged-right, allows \\, and has fixed width
+\newcolumntype{M}[1]{>{\raggedright\arraybackslash}m{#1}}
+
+% Column type: 20% width, right-aligned, italic by default, wrapping
+\newcolumntype{T}{>{\raggedright\arraybackslash\itshape}p{0.2\textwidth}}
+
+% Column type: fill the rest of the line, normal text
+\newcolumntype{D}{>{\raggedright\arraybackslash}X}
+
+
+% =========================
+% Lists
+% =========================
+% create rule to set leftmargin
+\usepackage{enumitem}             % customizable list environments
+
+% =========================
+% Colors
+% =========================
+\usepackage{xcolor}               % color support
+\definecolor{dkgreen}{rgb}{0,0.6,0}
+\definecolor{gray}{rgb}{0.5,0.5,0.5}
+\definecolor{mauve}{rgb}{0.58,0,0.82}
+\definecolor{brown}{rgb}{0.921, 0.325, 0.078}
+\definecolor{lightline}{rgb}{0.8,0.8,0.8}
+
+% Light horizontal line command for section breaks
+\newcommand{\lighthrule}{%
+  \par\vspace{0.75em}%
+  \begin{center}
+    \color{lightline}\rule{0.8\linewidth}{0.6pt}%
+  \end{center}
+  \vspace{0.75em}%
+}
+
+% =========================
+% Graphics and figures
+% =========================
+\usepackage{graphicx}             % includegraphics and more
+
+% A simple minipage-based figure environment
+\newenvironment{Figure}
+  {\par\medskip\noindent\minipage{\linewidth}}
+  {\endminipage\par\medskip}
+
+\graphicspath{
+  {./figures/}                    % figures/ subdirectory
+  {./assets/}                     % assets/ subdirectory
+  {./images/}                     % images/ subdirectory
+  {./}                            % current directory
+  {./data/}                       % data/ subdirectory
+}
+
+% =========================
+% Multicolumns, wrapping, tables, symbols
+% =========================
+\usepackage{multicol}                     % multiple columns
+\usepackage{wrapfig, lipsum, booktabs}    % wrapfig: text wrapping around figures; lipsum: dummy text; booktabs: high-quality tables
+\usepackage{marvosym}                     % symbol fonts (e.g., Euro, etc.)
+\usepackage{wasysym}                      % additional symbols
+
+% =========================
+% Listings (code)
+% =========================
+\usepackage{listings}                    % source code listings
+
+% =========================
+% Hyperlinks (load near the end)
+% =========================
+% colorlinks=true  : color the link text (instead of colored boxes)
+% linkcolor=black  : color for internal links (sections, refs)
+% citecolor=black  : color for citation links
+% final            : force link creation even in draft mode (opposite of draft)
+\usepackage[colorlinks = true, linkcolor = black, citecolor = black, final]{hyperref}
+
+% =========================
+% tcolorbox styles (shared)
+% =========================
+% [most] loads most commonly used tcolorbox libraries (skins, breakable, theorems, listings, etc.)
+\usepackage[most]{tcolorbox}
+
+% Shared style for both inline + block
+% colback  : background color
+% colframe : border color
+% boxrule  : border thickness
+% arc      : corner radius
+% boxsep   : inner padding between text and border
+\tcbset{
+  graystyle/.style={
+    colback=gray!15,    % light gray background
+    colframe=gray!50,   % slightly darker border
+    boxrule=0.5pt,      % border thickness
+    arc=3pt,            % corner radius
+    boxsep=0.5pt,       % padding text <-> border
+  },
+  whitestyle/.style={
+    colback=white,      % white background
+    colframe=black!50,  % gray border
+    boxrule=0.5pt,      % border thickness
+    arc=3pt,            % corner radius
+    boxsep=0.5pt,       % padding text <-> border
+  }
+}
+
+% Inline version
+% on line               : make the box inline with text
+% graystyle             : apply the shared gray style defined above 
+% left/right/top/bottom : fine-grained inner padding
+\newtcbox{\graybox}{on line, graystyle, left=2pt, right=2pt, top=1pt, bottom=1pt}
+
+% Block version
+% graystyle : apply shared style
+% enhanced  : enable advanced drawing features
+% breakable : allow page breaks inside the box
+% left/right/top/bottom: inner padding
+\newtcolorbox{grayblock}{graystyle, enhanced, breakable, left=4pt, right=4pt, top=2pt, bottom=4pt}
+
+% Cell version for tables
+% width=\linewidth : make the box match the width of the parent cell
+\newtcolorbox{graycell}{%
+  graystyle,
+  enhanced,
+  breakable,
+  width=\linewidth,       
+  left=4pt, right=4pt, top=3pt, bottom=3pt
+}
+
+% White version for table cells
+\newtcolorbox{whitecell}{%
+  whitestyle,
+  enhanced,
+  breakable,
+  width=\linewidth,         
+  left=4pt, right=4pt, top=3pt, bottom=3pt
+}
+
+% =========================
+% Final spacing overrides
+% =========================
+\setlength{\parindent}{0in}   % override earlier 15pt indent: no paragraph indentation
+
+% =========================
+% Page style
+% =========================
+\pagestyle{empty}             % suppress headers/footers
+
+% =========================
+% Algorithms
+% =========================
+\usepackage{algorithm}
+\usepackage{algpseudocode} % from algorithmicx
+
+\algnewcommand\algorithmicdef{\textbf{fn}}
+
+\algdef{SE}[DEF]{Def}{EndDef}[2]{\algorithmicdef\ \textsc{#1}(#2)}{\algorithmicend\ \algorithmicdef}
+
+% --- Match/Case/Else vocabulary ---
+\algnewcommand\algorithmicmatch{\textbf{match}}
+\algnewcommand\algorithmicwith{\textbf{with}}
+\algnewcommand\algorithmicendmatch{\textbf{end}}
+\algnewcommand\algorithmiccase{\textbf{case}}
+
+% --- The outer match block:  \Match{expr} ... \EndMatch ---
+\algblockdefx[match]{Match}{EndMatch}[1]%
+  {\algorithmicmatch\ #1\ \algorithmicwith}%
+  {\algorithmicendmatch}
+
+% Case in the style: "case <pattern>:" then newline with body
+\algnewcommand{\Case}[2]{%
+  \State \algorithmiccase\ #1:%
+  \State \quad #2%
+}
+
+% =========================
+% TikZ and related libraries
+% =========================
+\usepackage{tikz}                               % TikZ for drawing
+\usepackage{tikz-3dplot}                        % 3D coordinate systems
+\usepackage{tikz-cd}                            % commutative diagrams
+\usepackage{quiver}                             % custom quiver styles (expands on tikz-cd)
+
+% TikZ libraries for additional features
+\usetikzlibrary{arrows.meta}                    % more arrow heads
+\usetikzlibrary{shapes.geometric}               % geometric shapes (circle, rectangle, etc.)
+\usetikzlibrary{graphs}                         % graph drawing syntax and common predefined graphs
+\usetikzlibrary{patterns}                       % patterns fill (hatching, dots, etc.)
+\usetikzlibrary{positioning}                    % relative positioning of nodes
+\usetikzlibrary{decorations.pathreplacing}      % path decorations (e.g., braces, etc.)
+\usetikzlibrary{quotes}                         % quotes for edge labels
+\usetikzlibrary{snakes}                         % snake-like lines
+\usetikzlibrary{calc}                           % coordinate calculations
+\usetikzlibrary{decorations.markings}           % markings on paths (e.g., arrows, dots)
+\usetikzlibrary{matrix}                         % matrix and array environments
+\usetikzlibrary{graphdrawing, graphs.standard}  % graph drawing and standard graphs
+
+\tdplotsetmaincoords{70}{120}                   % camera angle for 3D plots
+
+% Aliases for padding params
+\newcommand{\shiftx}{0.2}                 % x-axis shift
+\newcommand{\shifty}{0.2}                 % y-axis shift
