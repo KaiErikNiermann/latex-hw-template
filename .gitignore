@@ -9,3 +9,6 @@
 
 # minted 
 _minted-*
+
+# script install log 
+scripts/install.log
