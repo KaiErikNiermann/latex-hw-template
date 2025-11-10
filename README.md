@@ -30,3 +30,19 @@
 | Footnote               | `fn`         | Footnote                     | -                                                 |
 | For each tikz          | `tikzfor`    | TikZ `\foreach` loop         | Requires `tikz`.                                  |
 | Standalone tikzpicture | `stktz`      | Standalone TikZ document     | Useful for compiling figures separately.          |
+
+## Project structure
+
+General info about the project structure, i.e. purpose of files and folders.
+
+- `main.tex`: Main LaTeX document.
+- `figures/`: Directory for TikZ styles and external figures.
+  - `custom_tikz.sty`: Custom TikZ styles for the project.
+- `references.bib`: BibTeX bibliography file.
+- `.vscode/`: VSCode configuration files for LaTeX development.
+  - `settings.json`: Settings for LaTeX Workshop extension.
+  - `tex.code-snippets`: Custom LaTeX code snippets for VSCode.
+  - `extensions.json`: Recommended VSCode extensions for LaTeX work.
+- `assets/`: Directory for additional assets (images, data files, etc.).
+- `scripts/`: Directory for install utility scripts (requirement: ubuntu/debian).
+- `INSTALL.md`: Installation instructions for required tools and packages.
