@@ -13,6 +13,8 @@
 
 # minted 
 _minted-*
+**/*.listing
 
 # script install log 
 scripts/install.log
+
