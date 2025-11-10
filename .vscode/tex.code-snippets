@@ -108,8 +108,8 @@
 		"scope": "latex",
 		"prefix": "env",
 		"body": [
-			"\\begin{${1:environment}}",
-			"    $2",
+			"\\begin{${1:environment}}$2",
+			"    $3",
 			"\\end{${1:environment}}"
 		],
 		"description": "Insert a generic environment"

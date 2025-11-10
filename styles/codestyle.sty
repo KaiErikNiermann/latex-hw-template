@@ -33,53 +33,6 @@
   xleftmargin=5pt,
 }
 
-% --- Title-less minted listings with language argument --------------------
-% Usage: \begin{fileminted}{python} ... \end{fileminted}
-\newtcblisting{fileminted}[2][]{
-  enhanced,
-  listing engine=minted,
-  listing only,
-  breakable,
-  #1,
-  minted language=#2,
-  minted options={breaklines, mathescape=true, escapeinside=||},
-  sharp corners,
-  boxrule=0pt,
-  colframe=mintedbackground,
-  top=-2mm,
-  bottom=-2mm,
-  left=0pt,
-  right=0pt,
-  boxsep=4pt,
-  colback=mintedbackground,
-  frame code={ 
-    \path[draw=mintedborder, fill=white](frame.south west) rectangle (frame.north east); 
-    \path[draw=mintedborder](frame.south west)--(frame.south east); 
-  },
-}
-
-% A black-&-white, boxed variant (formerly 'mathalgo') without a title.
-% Usage: \begin{mathalgo}{cpp} ... \end{mathalgo}
-\newtcblisting{mathalgo}[2][]{%
-  enhanced,
-  listing engine=minted,
-  listing only,
-  breakable,
-  #1,
-  minted language=#2,
-  minted options={breaklines, mathescape=true, escapeinside=||}, 
-  sharp corners,
-  boxrule=1pt,
-  colframe=black,
-  top=0mm,bottom=0mm,left=0pt,right=0pt,boxsep=3pt,
-  colback=white,
-  minted style=bw,
-  frame code={
-    \path[draw=black](frame.south west)--(frame.south east);
-    \path[draw=black](frame.north west)--(frame.north east);
-  },
-}
-
 % --- Legacy listings config (unchanged) -----------------------------------
 \lstset{
   frame=tb,
