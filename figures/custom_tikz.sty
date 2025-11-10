@@ -1,0 +1,67 @@
+% =================================================
+% Language, encoding, fonts (order matters here)
+% =================================================
+\usepackage[english]{babel}             % [english] sets the document language (hyphenation, captions, etc.)
+\usepackage[T1]{fontenc}                % [T1] use T1 font encoding (better hyphenation for Latin scripts)
+\usepackage[utf8]{inputenc}             % UTF-8 source for pdfLaTeX
+\usepackage{csquotes}                   % context-sensitive quotation marks
+\usepackage{libertine}                  % Linux Libertine text font
+\usepackage{eulervm}                    % Euler math font
+\usepackage[scaled=0.92]{inconsolata}   % Dont remember why I did this but there was some reason 
+
+\usepackage{tikz}                               % TikZ for drawing
+\usepackage{tikz-3dplot}                        % 3D coordinate systems
+\usepackage{tikz-cd}                            % commutative diagrams
+
+% TikZ libraries for additional features
+\usetikzlibrary{arrows.meta}                    % more arrow heads
+\usetikzlibrary{shapes.geometric}               % geometric shapes (circle, rectangle, etc.)
+\usetikzlibrary{graphs}                         % graph drawing syntax and common predefined graphs
+\usetikzlibrary{patterns}                       % patterns fill (hatching, dots, etc.)
+\usetikzlibrary{positioning}                    % relative positioning of nodes
+\usetikzlibrary{decorations.pathreplacing}      % path decorations (e.g., braces, etc.)
+\usetikzlibrary{quotes}                         % quotes for edge labels
+\usetikzlibrary{snakes}                         % snake-like lines
+\usetikzlibrary{calc}                           % coordinate calculations
+\usetikzlibrary{decorations.markings}           % markings on paths (e.g., arrows, dots)
+\usetikzlibrary{matrix}                         % matrix and array environments
+\usetikzlibrary{graphdrawing, graphs.standard}  % graph drawing and standard graphs
+\usegdlibrary{layered}                          % layered graph layouts
+
+% \tdplotsetmaincoords{70}{120}                   % camera angle for 3D plots
+
+% Aliases for padding params
+\newcommand{\shiftx}{0.2}                 % x-axis shift
+\newcommand{\shifty}{0.2}                 % y-axis shift
+
+
+% =================================================
+% Quiver styles and settings
+% =================================================
+% `calc` is necessary to draw curved arrows.
+\usetikzlibrary{calc}
+% `pathmorphing` is necessary to draw squiggly arrows.
+\usetikzlibrary{decorations.pathmorphing}
+% `spath3` is necessary to draw shortened edges.
+\usetikzlibrary{spath3}
+
+% A TikZ style for curved arrows of a fixed height, due to AndréC.
+\tikzset{curve/.style={settings={#1},to path={(\tikztostart)
+    .. controls ($(\tikztostart)!\pv{pos}!(\tikztotarget)!\pv{height}!270:(\tikztotarget)$)
+    and ($(\tikztostart)!1-\pv{pos}!(\tikztotarget)!\pv{height}!270:(\tikztotarget)$)
+    .. (\tikztotarget)\tikztonodes}},
+    settings/.code={\tikzset{quiver/.cd,#1}
+        \def\pv##1{\pgfkeysvalueof{/tikz/quiver/##1}}},
+    quiver/.cd,pos/.initial=0.35,height/.initial=0}
+
+% A TikZ style for shortening paths without the poor behaviour of `shorten <' and `shorten >'.
+\tikzset{between/.style n args={2}{/tikz/spath/at end path construction={
+    \tikzset{spath/split at keep middle={current}{#1}{#2}}
+}}}
+
+% TikZ arrowhead/tail styles.
+\tikzset{tail reversed/.code={\pgfsetarrowsstart{tikzcd to}}}
+\tikzset{2tail/.code={\pgfsetarrowsstart{Implies[reversed]}}}
+\tikzset{2tail reversed/.code={\pgfsetarrowsstart{Implies}}}
+% TikZ arrow styles.
+\tikzset{no body/.style={/tikz/dash pattern=on 0 off 1mm}}

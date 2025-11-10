@@ -6,6 +6,10 @@
 **/*.synctex.gz
 **/*.fdb_latexmk
 **/*.fls
+**/*.bbl
+**/*.blg
+**/*.run.xml
+**/*.bcf
 
 # minted 
 _minted-*

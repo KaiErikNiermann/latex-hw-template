@@ -19,9 +19,16 @@
 \usepackage[english]{babel}             % [english] sets the document language (hyphenation, captions, etc.)
 \usepackage[T1]{fontenc}                % [T1] use T1 font encoding (better hyphenation for Latin scripts)
 \usepackage[utf8]{inputenc}             % UTF-8 source for pdfLaTeX
+\usepackage{csquotes}                   % context-sensitive quotation marks
 \usepackage{libertine}                  % Linux Libertine text font
 \usepackage{eulervm}                    % Euler math font
 \usepackage[scaled=0.92]{inconsolata}   % Dont remember why I did this but there was some reason 
+
+% =========================
+% References and citations
+% =========================
+\usepackage[style=ieee, sorting=nyt, urldate=long, date=long, backend=biber]{biblatex}
+\addbibresource{references.bib}
 
 % =========================
 % Mathematics and theorems
@@ -51,7 +58,7 @@
   \setlength{\grammarparsep}{20pt plus 1pt minus 1pt} % increase separation between rules
   \setlength{\grammarindent}{12em}                    % increase separation between LHS/RHS 
 
-\usepackage{simplebnf}                                           
+\usepackage{styles/simplebnf}                                           
 
 % Warning: lib gets pissy about certain math symbols
 \newcommand{\bnfenv}[1]{%
@@ -264,10 +271,13 @@
 \usepackage[colorlinks = true, linkcolor = black, citecolor = black, final]{hyperref}
 
 % =========================
-% tcolorbox styles (shared)
+% Custom boxes (tcolorbox)
 % =========================
 % [most] loads most commonly used tcolorbox libraries (skins, breakable, theorems, listings, etc.)
 \usepackage[most]{tcolorbox}
+
+% Gray block which can contain text, math, figures, tables, etc.
+%   nice for highlighting definitions, theorems, examples, etc.
 
 % Shared style for both inline + block
 % colback  : background color
@@ -299,10 +309,10 @@
 \newtcbox{\graybox}{on line, graystyle, left=2pt, right=2pt, top=1pt, bottom=1pt}
 
 % Block version
-% graystyle : apply shared style
-% enhanced  : enable advanced drawing features
-% breakable : allow page breaks inside the box
-% left/right/top/bottom: inner padding
+% graystyle             : apply shared style
+% enhanced              : enable advanced drawing features
+% breakable             : allow page breaks inside the box
+% left/right/top/bottom : inner padding
 \newtcolorbox{grayblock}{graystyle, enhanced, breakable, left=4pt, right=4pt, top=2pt, bottom=4pt}
 
 % Cell version for tables
@@ -327,12 +337,13 @@
 % =========================
 % Final spacing overrides
 % =========================
-\setlength{\parindent}{0in}   % override earlier 15pt indent: no paragraph indentation
+\setlength{\parindent}{0in}   % no paragraph indentation
 
 % =========================
 % Page style
 % =========================
-\pagestyle{empty}             % suppress headers/footers
+\pagestyle{plain}
+\pagenumbering{arabic}
 
 % =========================
 % Algorithms
@@ -367,7 +378,7 @@
 \usepackage{tikz}                               % TikZ for drawing
 \usepackage{tikz-3dplot}                        % 3D coordinate systems
 \usepackage{tikz-cd}                            % commutative diagrams
-\usepackage{quiver}                             % custom quiver styles (expands on tikz-cd)
+\usepackage{styles/quiver}                             % custom quiver styles (expands on tikz-cd)
 
 % TikZ libraries for additional features
 \usetikzlibrary{arrows.meta}                    % more arrow heads

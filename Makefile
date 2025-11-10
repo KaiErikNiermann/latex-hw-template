@@ -1,4 +1,4 @@
-CLEAN_EXTENSIONS = aux log out toc synctex.gz fdb_latexmk fls
+CLEAN_EXTENSIONS = aux log out toc synctex.gz fdb_latexmk fls bcl blg bbl run.xml
 
 clean:
 	@echo "Cleaning LaTeX build artifacts..."

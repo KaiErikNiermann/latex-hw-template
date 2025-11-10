@@ -166,4 +166,58 @@
 		],
 		"description": "Insert an aligned line"
 	}, 
+	"Theorem": {
+		"scope": "latex",
+		"prefix": "thm",
+		"body": [
+			"\\begin{theorem}{${1:Theorem Name}}",
+			"",
+			"    $2",
+			"\\end{theorem}"
+		],
+		"description": "Insert a theorem environment"
+	}, 
+	"Lemma": {
+		"scope": "latex",
+		"prefix": "lem",
+		"body": [
+			"\\begin{lemma}{${1:Lemma Name}}",
+			"",
+			"    $2",
+			"\\end{lemma}"
+		],
+		"description": "Insert a lemma environment"
+	}, 
+	"Footnote": {
+		"scope": "latex",
+		"prefix": "fn",
+		"body": [
+			"\\footnote{${1:Footnote text}}"
+		],
+		"description": "Insert a footnote"
+	},
+	"For each tikz": {
+		"scope": "latex",
+		"prefix": "tikzfor",
+		"body": [
+			"\\foreach ${1:\\var} in {${2:list}} {",
+			"    $3",
+			"}"
+		],
+		"description": "Insert a tikz foreach loop"
+	}, 
+	"Standalone tikzpicture": {
+		"scope": "latex",
+		"prefix": "stktz",
+		"body": [
+			"\\documentclass{standalone}",
+			"\\usepackage{tikz}",
+			"\\begin{document}",
+			"% ltex: off",
+			"    $1",
+			"% ltex: on",
+			"\\end{document}"
+		],
+		"description": "Insert a standalone tikzpicture document"
+	}
 }

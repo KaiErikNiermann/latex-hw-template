@@ -14,7 +14,12 @@
     "**/*.toc": true,
     "**/*.synctex.gz": true,
     "**/*.fdb_latexmk": true,
-    "**/*.fls": true
+    "**/*.fls": true, 
+    "**/*.bbl": true,
+    "**/*.blg": true,
+    "**/*.nav": true,
+    "**/*.bcf": true,
+    "**/*.run.xml": true,
   },
   // Formatting (dont ask me why its so weird)
   "[latex]": {

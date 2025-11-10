@@ -1,0 +1,9 @@
+{
+    "recommendations": [
+        "james-yu.latex-workshop",           // LaTeX support
+        "valentjn.vscode-ltex",              // LanguageTool extension for parsing LaTeX documents 
+        "tecosaur.latex-utilities",          // LaTeX utilities for the workshop extensions
+        "adamvoss.vscode-languagetool",      // LanguageTool for grammar and spell checking
+        "adamvoss.vscode-languagetool-en",   // English extension for LanguageTool
+    ]
+}
