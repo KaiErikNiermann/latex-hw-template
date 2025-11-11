@@ -26,6 +26,7 @@
     "editor.defaultFormatter": "James-Yu.latex-workshop"
   },
   "latex-workshop.formatting.latex": "tex-fmt",
+  "latex-workshop.formatting.tex-fmt.path": "/root/.cargo/bin/tex-fmt", // output of cmd: `which tex-fmt`
 
   // Different LaTeX build recipes
   "latex-workshop.latex.recipes": [
