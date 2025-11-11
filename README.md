@@ -8,6 +8,8 @@
 
 ## Snippets
 
+The snippets are defined in `.vscode/tex.code-snippets`.
+
 | Name                   | Prefix       | Purpose                      | Notes                                             |
 | ---------------------- | ------------ | ---------------------------- | ------------------------------------------------- |
 | Lean code              | `leancode`   | Lean code block              | Requires `minted` + `-shell-escape`.              |
@@ -30,6 +32,8 @@
 | Footnote               | `fn`         | Footnote                     | -                                                 |
 | For each tikz          | `tikzfor`    | TikZ `\foreach` loop         | Requires `tikz`.                                  |
 | Standalone tikzpicture | `stktz`      | Standalone TikZ document     | Useful for compiling figures separately.          |
+
+Note: If you are new to vscode snippets, see [this guide](https://code.visualstudio.com/docs/editor/userdefinedsnippets). But the tldr is to just type the prefix and hit tab. Some snippets have placeholders you can fill out then hit tab to go to the next placeholder. Within the snippet definition `$1`, `$2`, etc. denote placeholders, and `${1:default}` denotes a placeholder with a default value.
 
 ## Project structure
 
