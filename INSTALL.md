@@ -24,6 +24,14 @@
     tex-fmt --version
     ```
 
+3. (Optional) If the extension doesnt seem to find `tex-fmt`, you can find its path with:
+
+    ```sh
+    which tex-fmt
+    ```
+
+    and then set it in your VSCode settings under `latex-workshop.formatting.tex-fmt.path`. See `.vscode/settings.json` for an example.
+
 ## Minted
 
 For code highlighting using the `minted` package, you need to have Python and Pygments installed. The two main packages are:

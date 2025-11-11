@@ -14,12 +14,12 @@
     "**/*.toc": true,
     "**/*.synctex.gz": true,
     "**/*.fdb_latexmk": true,
-    "**/*.fls": true, 
+    "**/*.fls": true,
     "**/*.bbl": true,
     "**/*.blg": true,
     "**/*.nav": true,
     "**/*.bcf": true,
-    "**/*.run.xml": true,
+    "**/*.run.xml": true
   },
   // Formatting (dont ask me why its so weird)
   "[latex]": {
@@ -31,11 +31,11 @@
   // Different LaTeX build recipes
   "latex-workshop.latex.recipes": [
     {
-      "name": "lualatexmk",      // Supports some more advanced stuff
+      "name": "lualatexmk", // Supports some more advanced stuff
       "tools": ["lualatexmk"]
     },
     {
-      "name": "pdflatex",       // Basic tool
+      "name": "pdflatex", // Basic tool
       "tools": ["pdflatex"]
     }
   ],

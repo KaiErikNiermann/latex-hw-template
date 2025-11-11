@@ -46,3 +46,4 @@ General info about the project structure, i.e. purpose of files and folders.
 - `assets/`: Directory for additional assets (images, data files, etc.).
 - `scripts/`: Directory for install utility scripts (requirement: ubuntu/debian).
 - `INSTALL.md`: Installation instructions for required tools and packages.
+- `Makefile`: Makefile providing command `make clean` to clean auxiliary files. (hidden by default in VSCode explorer)
