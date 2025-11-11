@@ -1,1 +1,11 @@
 Pygments
+VSCode
+TikZ
+ubuntu
+debian
+tikzpicture
+tikz
+Piecewise
+Algpseudocode
+Tikz
+Simplebnf
