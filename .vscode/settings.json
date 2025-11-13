@@ -14,7 +14,6 @@
     "**/*.toc": true,
     "**/*.synctex.gz": true,
     "**/*.fdb_latexmk": true,
-    "**/*.fls": true,
     "**/*.bbl": true,
     "**/*.blg": true,
     "**/*.nav": true,
@@ -37,9 +36,20 @@
     {
       "name": "pdflatex", // Basic tool
       "tools": ["pdflatex"]
+    }, 
+    {
+      "name": "latexmk", // Basic latexmk with pdf output
+      "tools": ["latexmk"]
     }
   ],
-  "latex-workshop.latex.recipe.default": "lualatexmk", // Selected from the above
+  "latex-workshop.latex.recipe.default": "pdflatex", // Selected from the above
+  "latex-workshop.latex.autoBuild.run": "onSave",
+  // "latex-workshop.latex.autoClean.run": "onBuilt",
+
+  "files.associations": {
+    "*.sty": "latex",
+    "*.tex": "latex"
+  },
 
   // LaTeX build tools configurations
   "latex-workshop.latex.tools": [
@@ -52,6 +62,8 @@
         "-file-line-error",
         "-pdf",
         "-outdir=%OUTDIR%",
+        "-shell-escape", // enable shell-escape for minted
+        "-recorder", 
         "%DOC%"
       ],
       "env": {}
@@ -96,6 +108,8 @@
         "-synctex=1",
         "-interaction=nonstopmode",
         "-file-line-error",
+        "-shell-escape", // enable shell-escape for minted
+        "-recorder",  // 
         "%DOC%"
       ],
       "env": {}

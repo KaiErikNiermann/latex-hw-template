@@ -151,9 +151,9 @@
 		"scope": "latex",
 		"prefix": "aligned",
 		"body": [
-			"\\begin{aligned}",
+			"\\begin{align*}",
 			"    $1",
-			"\\end{aligned}"
+			"\\end{align*}"
 		],
 		"description": "Insert an aligned environment"
 	}, 
@@ -219,5 +219,15 @@
 			"\\end{document}"
 		],
 		"description": "Insert a standalone tikzpicture document"
+	}, 
+	"Grayblock": {
+		"scope": "latex",
+		"prefix": "grayblock",
+		"body": [
+			"\\begin{grayblock}",
+			"    $1",
+			"\\end{grayblock}"
+		],
+		"description": "Insert a grayblock environment"
 	}
 }

@@ -51,3 +51,11 @@ General info about the project structure, i.e. purpose of files and folders.
 - `scripts/`: Directory for install utility scripts (requirement: ubuntu/debian).
 - `INSTALL.md`: Installation instructions for required tools and packages.
 - `Makefile`: Makefile providing command `make clean` to clean auxiliary files. (hidden by default in VSCode explorer)
+- `html/`: Directory containing scripts to build HTML version of the document.
+  - `build.sh`: Script to convert LaTeX to HTML using Pandoc.
+  - `styles.css`: CSS styles for the HTML output.
+  - `header.html`: Header to include MathJax in the HTML output.
+
+## Type Settings notes
+
+- `minted` : For some reason only `pdflatex` seems to draw `\texttt{}` using *inconsoloas* font as opposed to the much worse looking alternatives. Both `latexmk` and `lualatex` for some reason fall back to a different font for `\texttt{}`, unsure why. So the default right now is to use `pdflatex` for the document build and use `lualatex` only for standalone TikZ figures as they require it for certian features.

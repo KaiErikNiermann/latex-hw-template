@@ -1,0 +1,60 @@
+<script type="text/javascript">
+  MathJax = {
+    tex: {
+      tags: "ams",
+      inlineMath: [
+        ["$", "$"],
+        ["\\(", "\\)"],
+      ],
+      displayMath: [
+        ["$$", "$$"],
+        ["\\[", "\\]"],
+      ],
+    },
+    options: {
+      ignoreHtmlClass: "tex2jax_ignore",
+      processHtmlClass: "tex2jax_process",
+    },
+    loader: {
+        load: ["[tex]/newcommand", "[tex]/ams", "[tex]/bussproofs"] 
+    },
+    tex: {
+      packages: {
+        "[+]": ["newcommand"],
+        "[+]": ["ams"],
+        "[+]": ["bussproofs"],
+      },
+    },
+    macros: {
+    },
+    startup: {
+      ready() {
+        MathJax.startup.defaultReady();
+        const { STATE } = MathJax._.core.MathItem;
+        MathJax.tex2mml(String.raw`
+            % \bvec for bold vectors
+            \newcommand{\linpar}{\mathbin{\bindnasrepma}}         % linear logic par (fix to get around simplebnf parsing thing)
+            \newcommand{\bvec}[1]{\mathbf{#1}}                    % bold vectors
+            \newcommand{\ds}{\displaystyle}                       % display style   
+            \newcommand{\iid}{\stackrel{iid}{\sim}}               % i.i.d. distributed as
+            \newcommand{\indep}{\perp\!\!\!\perp}                 % independence
+            \newcommand{\given}{\,|\,}                            % "given" in conditional probabilities
+            \newcommand{\pr}{\text{P}}                            % probability
+            \newcommand{\like}{\mathcal{L}}                       % likelihood
+            \newcommand{\loglike}{\ell}                           % log-likelihood
+            \newcommand{\normpdf}{\phi}                           % normal PDF
+            \newcommand{\normcdf}{\Phi}                           % normal CDF
+            \newcommand{\shift}[3]{\uparrow^{#1,#2}_{#3}}         % shift operator
+            \newcommand{\deltaeq}[2]{\delta(#1{=}#2)}             % delta equality
+            \newcommand{\defeq}{\triangleq}                       % defined equal
+            \newcommand{\po}{\sqsubseteq}                         % partial order
+            \newcommand{\lrbrack}[1]{\llbracket #1 \rrbracket}    % left and right double brackets
+            \newcommand{\FV}[1]{\text{FV}(#1)}                    % left and right double brackets
+            \newcommand{\Mod}[1]{\text{Mod}(#1)}                  % left and right double brackets
+            \newcommand{\cf}[1]{\texttt{#1}}                      % code font (for inline code snippets)
+      `);
+      },
+    },
+  };
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-svg.js"></script>
