@@ -18,3 +18,9 @@ _minted-*
 # script install log 
 scripts/install.log
 
+# html
+html/main.html
+
+# tex pdf 
+main.pdf
+

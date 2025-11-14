@@ -56,6 +56,24 @@ General info about the project structure, i.e. purpose of files and folders.
   - `styles.css`: CSS styles for the HTML output.
   - `header.html`: Header to include MathJax in the HTML output.
 
+## HTML export + inference rules
+
+- Run `make html` (or just `make`) to generate `html/main.html` using Pandoc + MathJax. The script auto-loads the header + stylesheet and works from any working directory.
+- The HTML header now bundles MathJax macros that emulate the `mathpar` + `\inferrule`/`\inferrule*` experience from the `mathpartir` package, so standard inference rules render correctly in browsers.
+- Labels specified via `\inferrule*[right=Rule Name]{premises}{conclusion}` are parsed and displayed in small caps on the rule’s right edge.
+
+Example snippet that works in both PDF and HTML builds:
+
+```latex
+\begin{mathpar}
+  \inferrule*[right=While (simple)]{
+    \{P \land B\} \; s \; \{P\}
+  }{
+    \{P\} \; \cwhile\ B\ \texttt{do}\ s \; \{P \land \neg B\}
+  }
+\end{mathpar}
+```
+
 ## Type Settings notes
 
 - `minted` : For some reason only `pdflatex` seems to draw `\texttt{}` using *inconsoloas* font as opposed to the much worse looking alternatives. Both `latexmk` and `lualatex` for some reason fall back to a different font for `\texttt{}`, unsure why. So the default right now is to use `pdflatex` for the document build and use `lualatex` only for standalone TikZ figures as they require it for certian features.
