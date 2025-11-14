@@ -59,20 +59,6 @@ General info about the project structure, i.e. purpose of files and folders.
 ## HTML export + inference rules
 
 - Run `make html` (or just `make`) to generate `html/main.html` using Pandoc + MathJax. The script auto-loads the header + stylesheet and works from any working directory.
-- The HTML header now bundles MathJax macros that emulate the `mathpar` + `\inferrule`/`\inferrule*` experience from the `mathpartir` package, so standard inference rules render correctly in browsers.
-- Labels specified via `\inferrule*[right=Rule Name]{premises}{conclusion}` are parsed and displayed in small caps on the rule’s right edge.
-
-Example snippet that works in both PDF and HTML builds:
-
-```latex
-\begin{mathpar}
-  \inferrule*[right=While (simple)]{
-    \{P \land B\} \; s \; \{P\}
-  }{
-    \{P\} \; \cwhile\ B\ \texttt{do}\ s \; \{P \land \neg B\}
-  }
-\end{mathpar}
-```
 
 ## Type Settings notes
 
